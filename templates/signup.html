@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="nav bg-info">
+<h1 class="text-light" style="margin-left: 40%;">Registration</h1>
+</div>
+<div class="container">
+    {% for message in messages %}
+    <h5>
+        <div class="alert alert-danger mt-5" style="width: 50%;">
+        {{ message }}
+        </div>
+    </h5>
+    {% endfor %}
+</div>
+<div class="container-fluid bg-light" style="border-radius: 10px; width: 50%;">
+<form action="{% url 'usercreate' %}" method="post" class="form pt-5 pb-5" style="width: 50%; margin-left: 25%; margin-top: 20px; margin-bottom: 20px;">
+{% csrf_token %}
+
+<input type="text" name="first_name" class="form-control" placeholder="First Name"><br>
+<input type="text" name="second_name" class="form-control" placeholder="Second Name"><br>
+<input type="text" name="user_name" class="form-control" placeholder="User Name"><br>
+<input type="email" name="email" class="form-control" placeholder="Email ID"><br>
+<input type="password" name="password" class="form-control" placeholder="Strong Password"><br>
+<input type="password" name="cpassword" class="form-control" placeholder="Confirm The Password"><br>
+<button type="submit" class="btn btn-outline-info" style="margin-left: 40%;">Submit</button>
+<br>
+<p class="text-muted">Already have an account? <a href="#">Login</a></p>
+</form>
+</div>
+{% endblock %}
